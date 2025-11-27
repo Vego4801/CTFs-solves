@@ -1,0 +1,9 @@
+Soluzione:
+
+	--> cat /etc/cron.d/cronjob_bandit23
+	--> cat /usr/bin/cronjob_bandit23.sh
+	--> echo "I am user bandit23" | md5sum | cut -d ' ' -f 1
+		{cifra la stringa in echo con MD5, tokenizza (splittando secondo ' ') la stringa cifrata e prende il primo token (tutto usando 'cut')}
+	--> cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+
+Flag: QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G

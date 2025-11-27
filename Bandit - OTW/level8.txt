@@ -1,0 +1,5 @@
+Soluzione:
+
+	--> cat data.txt | grep "millionth"
+
+Flag: TESKZC0XvTetK0S9xNwm25STk5iWrBvP

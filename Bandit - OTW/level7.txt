@@ -1,0 +1,6 @@
+Soluzione:
+
+	--> find / -type f -size 33c -user bandit7 -group bandit6 -exec cat {} + 2>/dev/null
+	{Il file è: /var/lib/dpkg/info/bandit7.password
+
+Flag: z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S

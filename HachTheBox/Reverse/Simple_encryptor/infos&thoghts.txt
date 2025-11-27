@@ -1,0 +1,12 @@
+(vedere screenshot della funzione main fatta da ghidra; fatta per semplicità di lettura del report).
+
+Il programma cripta il contenuto del file usando XOR e shiffitng tra la stringa ottenuta dal file e un numero intero casuale ottenuto dalla
+funzione 'rand()', dopo aver impostato il seed al tempo attuale di esecuzione (ottenuto tramite la funzione 'time(NULL)').
+
+Dopodiché scrive nel file 'flag.enc' quanto segue: il tempo (in secondi) ottenuto dalla funzione 'time(NULL)' e la stringa criptata.
+Formato [seconds][flag_enc]
+
+NOTA: I primi 4 bytes sono sempre i secondi!
+NOTA: 'sbyte' sta per 'Signed Byte', perché il tipo 'byte' è unsigned.
+
+NOTA: Lo script python fa "algoritmicamente" quello che fa il file '.c', ma fa fatica a gestire correttamente i tipi di C, quindi è stato optata per una soluzione C-Like

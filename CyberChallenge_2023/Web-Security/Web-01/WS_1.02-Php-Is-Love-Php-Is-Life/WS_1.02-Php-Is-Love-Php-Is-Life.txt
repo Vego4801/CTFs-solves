@@ -1,0 +1,8 @@
+https://bugs.php.net/bug.php?id=48231
+
+https://www.php.net/manual/en/language.variables.variable.php
+
+https://stackoverflow.com/questions/30680938/how-can-i-access-an-array-object
+
+
+STRING:		};print(${$strings{4}});//

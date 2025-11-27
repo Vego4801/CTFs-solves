@@ -1,0 +1,13 @@
+# Abbiamo a disposizione solo N, E e C.
+# Possiamo utilizzare FactorDB.com o qualche programma di fattorizzazione per ricavare P e Q:
+www.factordb.com
+P = 2147990771;	Q = 3248916997
+
+# Ricaviamo Phi:
+Phi = (P-1) x (Q-1) = 6978643719904126920
+
+# Ricaviamo D per la decifratura del ciphertext:
+D = (E^(-1)) mod Phi = 200935360169966393
+
+# Con questi dati è possibile ricavare il plaintext:
+P = CCIT{d3---------------------3?}

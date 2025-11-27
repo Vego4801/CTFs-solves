@@ -1,0 +1,13 @@
+# In questo caso abbiamo un plaintext e un ciphertext, ma non conosciamo la chiave
+# utilizzata per la cifratura del testo; la cifratura avviene in due fasi, utilizzando
+# due chiavi diverse che sono la prima e la seconda metà della vera chiave.
+# Possiamo effettuare, però, un'operazione di Meet-In-The-Middle per trovare le due
+# chiavi che offrono la stessa cifratura intermedia:
+# P ---E(P, k1)--> C1 ---E(C1, k2)--> C2   <==>   P ---E(P, k1)--> C1 <--D(C2, k2)--- C2
+
+# Quindi possiamo tranquillamente trovare le due chiavi (ergo l'intera chiave) salvandoci
+# tutte le coppie (C1, k1) di E(P, k1) per poi confrontare successivamente quale coppia
+# (C1, k2) di D(C2, k2) ritorna lo stesso ciphertext C1.
+
+# NOTA: La funzione è definita all0interno dello script della challenge perché sono
+# troppo pigro :)

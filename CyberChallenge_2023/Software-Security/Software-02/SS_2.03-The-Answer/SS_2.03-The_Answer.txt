@@ -1,0 +1,13 @@
+# Dal codice sorgente possiamo notare come venga utilizzata inappropriamente la funzione "printf",
+# passando come primo argomento l'input dell'utente.
+# Questo porta a una vulnerabilità di "Format-String"!
+
+# Dopo aver trovato (tramite tools come "nm" -- "Name Mangling" per il dump della symbol table di
+# un programma) l'indirizzo della variabile che dobbiamo manipolare (in questo caso 'answer'), possiamo
+# procedere a leak-are i valori nello stack mediante delle format string appositamente create per questo
+# (vedi breve speigazione nello script Python)
+
+# Dopo aver trovato a che posizione, nella lista dei parametri, si trova la stringa che dovremo sostituire
+# con l'indirizzo della variabile (anche qui, vedere nello script Python) non rimane altro che costruire
+# il payload in modo da sovrascrivere quella variabile con il valore corretto per accedere all'interno
+# del blocco 'if' (ancora una volta, vedere script Python).

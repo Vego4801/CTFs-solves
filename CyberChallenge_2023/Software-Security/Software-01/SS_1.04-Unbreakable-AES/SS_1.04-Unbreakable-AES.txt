@@ -1,0 +1,10 @@
+# La challenge prevede come input una chiave (spoiler: non verrà mai utilizzata), il
+# path del file da cui leggere il testo da cifrare e il path del file in cui scrivere
+# il testo cifrato.
+
+# All'interno viene chiamata la funzione 'encrypt' che a cifrerà al suo interno il
+# plaintext con un meccanismo molto semplice: l'i-esimo byte del plaintext viene
+# girato di 'i' posizioni a destra, ovvero l'operazione "ROR" (ROtate Right).
+
+# La soluzione è semplicemente prendere la flag cifrata e applicare a ogni byte di
+# essa l'operazione inversa della ROR, ovvero la ROL (ROtate Left).

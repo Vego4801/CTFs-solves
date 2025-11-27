@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title">{{ post.getTitle()|e }}</h1>
+    {# We don't want to escape the body. It should already been escapade in the backend#}
+    <p>{{ post.getBody()|raw }}</p>
+</div>
+{% endblock %}

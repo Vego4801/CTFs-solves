@@ -1,0 +1,32 @@
+# Il programma inizia col mappare dei nuovi indirizzi per il programma, delegando al
+# Kernel l'onere di trovare gli indirizzi adatti, per poi copiare nel nuovo spazio di
+# indirizzi tutti i dati che si trovano nel blocco di indirizzi definito in
+# '_data.202010'.
+
+# Saltati degli inutili controlli su parametri che non verrano utilizzati nel programma
+# (basta anche solo rispettare le condizioni, non è necessario NOParli), chiama un'altra
+# funzione che randomizza l'accesso alle porzioni di codice (o meglio delle funzioni).
+
+# Ogni funzione chiamata all'interno del loop svolge due principali compiti: controllare
+# che l'i-esimo byte del registro 'rdi' (che conterrà l'input dell'utente) sia lo
+# stesso dell'immediate specificato all'interno di quella funzione e, se vero, dopo
+# aver recuperato l'indirizzo in cui apportare le modifiche (indirizzo di quelli
+# mappati), delle operazioni per aggiungere un'ulteriore funzione in quello spazio di
+# indirizzi che verrà chiamata in un secondo momento.
+
+# Da notare che l'immediate di ogni funzione è un valore esadecimale nel range dei
+# caratteri ASCII umanamente comprensibili.
+# Quindi la soluzione sta nel far "ricostruire" al programma le funzioni per ottenere
+# il valore esadecimale dei caratteri dagli immediate di tali funzioni e utilizzarli
+# per comporre la flag.
+
+# Siccome la chiamata a funzione è sempre randomica (ergo anche il controllo lo sarà)
+# bisogna debuggare il programma e, raggiunta la funzione, modificare il contenuto
+# dell'input (che si trova all'indirizzo in 'rdi' per il controllo) oppure
+# direttamente il byte meno significativo del registro 'rax' (perché copia il byte 
+# dell'input in questo registro).
+
+# Una volta eseguito tutto il programma (ovviamente prima che finisca) possiamo
+# accedere nuovamente all'indirizzo iniziale degli indirizzi mappati con 'mmap' e
+# osservare tutte le funzioni "costruite" dal programma in cui sono presenti, in
+# ognuna di essi, proprio i caratteri della flag.

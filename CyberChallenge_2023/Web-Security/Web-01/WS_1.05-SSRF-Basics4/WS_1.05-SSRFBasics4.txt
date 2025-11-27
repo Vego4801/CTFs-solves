@@ -1,0 +1,16 @@
+# Questa volta la challenge aggiunge un nuovo ostacolo: non possiamo più usare
+# le redirections per far fare al server una richiesta a sé stesso.
+# Questo è dovuto all'utilizzo di cURL insieme all'opzione 'CURLOPT_FOLLOWLOCATION'
+# impostata a 'false' (0).
+# Una piccola nota riguarda l'utilizzo di cURL: quando farà il fetch del
+# contenuto avrà bisogno di inviare un'altra richiesta DNS se il TTL di quella
+# effettuata precedentemente dal server stesso è scaduta (TTL basso).
+# Questo ci porta a un "DNS Rebinding"!
+
+# Utilizziamo questo sito molto semplice che implementa la funzionalità che
+# cerchiamo:
+http://1u.ms/
+
+# Copia e incolliamo il subdomain offerto dal sito (modificando opportunamente
+# gli indirizzi IP) e otterremo la flag (93.184.216.34 => www.example.com).
+http://make-93.184.216.34-rebind-127.0.0.1-rr.1u.ms/get_flag.php

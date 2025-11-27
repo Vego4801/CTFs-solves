@@ -1,0 +1,21 @@
+# Il servizio offerto ci dice solamente quando la cifratura è andata a buon fine oppure no.
+# In particolare, se non viene passato un ciphertext della lunghezza corretta il servizio
+# ci ritorna un messaggio di errore di incorrettezza del padding.
+# Da questo messaggio di errore possiamo effettuare un'operazione di decifratura del ciphertext
+# effettuando un Padding Oracle Attack.
+# Ci sono diversi approcci per questo tipo di attacco; siccome abbiamo a disposizione anche la
+# possibilità di passare all'oracolo il blocco di IV, possiamo sfruttare il blocco precedente a
+# quello target come IV e passare quello target come unico blocco di ciphertext (a cui verrà
+# aggiunto un blocco di solo padding che non ci interessa), a meno del primo blocco di ciphertext
+# che dovrà avere come IV l'IV originale ottenuto all'inizio.
+# In ogni caso, ogni approccio riesce a ridurre il problema di decifrare un ciphertext multiblocco
+# cifrato con la modalità CBC in sottoproblemi di decifratura di ciphertext a blocco singolo!
+
+# Siccome il padding viene aggiunto alla fine dell'intero plaintext, ogni singolo blocco di ciphertext
+# intermedio deve essere scovato byte per byte, modificando il blocco di plaintext corrispondente in
+# modo che il padding di quel blocco risulti essere inizialmente di 1 (che poi verrà incrementato fino
+# alla lunghezza del blocco).
+
+# Solo per l'ultimo blocco è possibile velocizzare il processo scovando la lunghezza originale del padding
+# per trovare inizialmente gli 'n' byte del ciphertext intermedio (dove 'n' è il valore di padding).
+# NOTA: In questo caso non viene fatto perché sono pigro :)

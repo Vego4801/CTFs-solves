@@ -1,0 +1,9 @@
+Soluzione:
+
+	--> cd ./inhere
+	--> find . -type f -exec file {} + | grep "ASCII text"
+		{Esegue per ogni file trovato il comando 'file' e filtra con grep}
+	--> cat ./-flag07
+
+Flag: lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+

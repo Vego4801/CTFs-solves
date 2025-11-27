@@ -1,0 +1,6 @@
+Soluzione:
+
+	--> $0	{Siccome è una shell interattiva possiamo avvalerci delle variabili, infatti in $0 c'è il nome della shell (provare: `test="Hello World"` e poi `echo $test`, oppure `set "Hello" "World` e poi echo $1 $2 (vedere comando 'set'}
+	--> cat /etc/bandit_pass/bandit33
+
+Flag: odHo63fHiFqcWWJG9rLiLDtPm45KzUKy

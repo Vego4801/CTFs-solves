@@ -1,0 +1,8 @@
+The site is affected by SSTI (Server Side Template Injection):
+The page renders the "404 page" with the searched page name as the parameter for the template.
+This will lead to a simple injection with the following structure:
+
+(<URL>/ is the URL of the page, the payload is the following instruction)
+<URL>/{{request.application.__globals__.__builtins__.__import__('os').popen('ls -al').read().
+
+That's it, the job is done!

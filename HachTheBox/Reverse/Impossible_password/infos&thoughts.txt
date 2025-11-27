@@ -1,0 +1,48 @@
+- Con il comando "file" notiamo che il file è "stripped", dunque non contiene informazioni per il debugging, il che non ci aiuta molto.
+
+
+- Provando a stampare tutte le stringhe con il comando "strings" è possibile trovare una stringa interessante: SuperSeKretKey
+Tale stringa, se usata come input, passa dal primo (un solo asterisco) livello al secondo! (due asterischi)
+
+
+- Con i comandi 'ltrace' e 'strace' è stato possibile trovare le chiamate a funzione del programma.
+Questo ha aiutato anche a tracciare più facilmente l'esecuzione del programma nell'output dato dal comando 'objdump'.
+
+
+- Analizzando col comando "objdump" il file, è possibile vedere come il programma carichi sullo stack una sequenza di bytes
+(il primo viene caricato in [rbp-0x40], procedendo byte per byte fino all'ultimo che viene caricato in [rbp-0x2d]:
+
+[0x41 0x5d 0x4b 0x72 0x3d 0x39 0x6b 0x30 0x3d 0x30 0x6f 0x30 0x3b 0x6b 0x31 0x3f 0x6b 0x38 0x31 0x74]
+Tradotto in una stringa ASCII risulta in;
+	- partendo dalla fine verso l'inizio: "t18k?1k;0o0=0k9=rK]A";
+	- partendo dall'inizio verso la fine: "A]Kr=9k0=0o0;k1?k81t";
+
+Sembrerebbe una stringa cifrata, qualche ulteriore analisi potrebbe confermare oppure contraddire questa ipotesi.
+
+
+
+
+
+IDEA: Patchare in modo che salti la cifratura e il controllo della stringa (con la NOP instruction).
+	  Patchare in modo che salti alla funzione di ritorno della flag come se avessimo passato la stringa corretta invece che inserire NOP.s
+
+
+
+# VEDERE ISTRUZIONI:
+cdq    
+idiv   ecx
+repz ret
+imul   edx,eax
+xchg   ax,ax
+sar    rbp,0x3
+
+
+TOOL & COMANDI USATI:
+
+	- "file"	: 
+	- "strings"	:
+	- "ltrace"	:
+	- "strace"	:
+	- "objdump"	:
+	- vim con comando ":%!xxd" all'interno di VIM (vedere cosa fa)
+

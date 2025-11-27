@@ -1,0 +1,9 @@
+# Il servizio ci permette di ottenere un ciphertext da una password che inseriamo noi.
+# Guardando lo script messo a disposizione possiamo notare che utilizza la modalità ECB!
+# Questo ci permette con molta tranquillità di ottenere il segreto sfruttando il fatto
+# che i blocchi sono di 16B ed è possibile inviare un input inferiore a 32B.
+# Inviando un input inferiore a 32B, il segreto shifterà verso il blocco dove è presente
+# anche il nostro input; con un input costante (es: AAAA...AA) è possibile fare bruteforce
+# sull'ultimo byte di quel blocco per ottenere il primo carattere del segreto.
+# Ripetendo così il processo, decrementando la lunghezza dell'input man mano e facendo
+# bruteforcing sull'ultimo byte del blocco è possibile ottenere il segreto (ovvero la flag).

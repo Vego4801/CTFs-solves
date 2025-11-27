@@ -1,0 +1,1 @@
+Soluzione: ssh -l bandit0 -p 2220 bandit.labs.overthewire.org (psw: bandit0)

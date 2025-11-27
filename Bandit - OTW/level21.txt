@@ -1,0 +1,8 @@
+Soluzione:
+
+	--> echo "VxCazJaVykI6W36BkBU0mJTCM8rR95XT" | nc -lvp 6666 &
+		{'nc' si mette in ascolto (in bg) e invia la stringa in echo a chi si connette}
+	--> ./suconnect 6666
+		{Il programma si connette su 6666 e legge la stringa inviata da 'nc'}
+
+Flag: NvEJF7oVjkddltPSrdKEFOllh9V1IBcq 

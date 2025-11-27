@@ -1,0 +1,17 @@
+# Il programma controlla che l'input dell'utente corrisponda a quello della flag
+# utilizzando un meccanismo di controllo particolare: controlla che l'i-esimo
+# carattere inserito sia corretto controllando che la somma del valore intero di
+# quel carattere e di quelli precedenti corrisponda all'i-esimo valore presente
+# in un vettore di interi, in cui ogni intero corrisponde proprio alla somma del
+# valore dell'i-esimo carattere della flag e di quelli precedenti a esso.
+# Purtroppo il programma crasha quando l'input è errato in quanto chiama
+# ricorsivamente la funzione controllando però lo stesso carattere!
+
+# Questo però non dovrebbe essere un problema (è anche possibile sistemarlo) per
+# ottenere la flag: basta analizzare i valori all'indirizzo del vettore d'interi
+# e sottrarre all'i-esimo valore l'(i-1)-esimo valore di quel vettore per
+# ottenere l'i-esimo carattere (in esadecimale) della flag!
+
+# NOTA: Soluzione non testata!
+# In alternativa è possibile sistemare il programma in modo che non vada in crash
+# e fare bruteforce sui caratteri della flag

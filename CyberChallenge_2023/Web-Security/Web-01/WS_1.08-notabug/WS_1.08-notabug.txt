@@ -1,0 +1,13 @@
+# Dopo aver dato un'occhiata ai file dentro '/src/, possiamo constatare che
+# non c'è nulla di interessante (a parte il file 'app.py' che contiene la flag).
+# Dunque non rimane che vedere cosa possono avere d'interessante gli altri file.
+# Navigando un po' tra i file possiamo notare un file di configurazione di 'nginx'
+# Proviamo a vedere quali potrebbero essere i problemi che possono sorgere da una
+# configurazione errata del file:
+https://blog.detectify.com/2020/11/10/common-nginx-misconfigurations/
+
+# Possiamo notare tra le tutte che manca una slash ('/') nella configurazione per
+# la posizione di '/static' (nel sito viene indicato come "off-by-slash") che ci
+# permette di sfruttare il parsing errato della URL per accedere alla directory
+# padre, permettendo così di accedere al file 'app.py'.
+http://notabug.challs.cyberchallenge.it/static../app.py

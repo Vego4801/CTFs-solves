@@ -1,0 +1,10 @@
+# Questa challenge può sembrare apparentemente difficile (o forse no, dipende) ma basta accorgersi di un
+# piccolo particolare e il tutto si riduce a due semplici operazioni.
+# Il particolare in questione è che sia la chiave che il nonce vengono riutilizzati per tutta la durata
+# dell'esecuzione del programma!
+# Se la coppia (key, nonce) viene riutilizzata l'algoritmo di cifratura genererà sempre lo stesso sottoinsieme
+# di chiavi!
+# Inoltre c'è da considerare che l'algoritmo di cifratura in questione, ovvero ChaCha20, genera il ciphertext
+# dallo XOR tra plaintext e lo stream di chiavi; se genera lo stesso stream di chiavi, l'operazione di cifratura
+# può essere invertita cifrando nuovamente il testo cifrato! (un po' come accadeva con DES e le chiavi deboli).
+https://loup-vaillant.fr/tutorials/chacha20-design

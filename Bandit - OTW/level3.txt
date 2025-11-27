@@ -1,0 +1,8 @@
+Since spaces are special characters, we need to escape it using '\'
+
+Soluzione:
+
+	--> ls .
+	--> cat spaces\ in\ this\ filename
+
+Flag: aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG

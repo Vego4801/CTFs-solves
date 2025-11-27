@@ -1,0 +1,8 @@
+Soluzione:
+
+	--> mkdir /tmp/pippopalla && cd /tmp/pippopalla
+	--> git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
+		{Importante specificare la porta 2220 altrimenti usa la 22 di default!}
+	--> cat ./repo/README
+
+Flag: AVanL161y9rsbcJIsFHuw35rjaOM19nR

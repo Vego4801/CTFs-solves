@@ -1,0 +1,5 @@
+# Possiamo notare che il fattore pubblico (e) è decisamente molto piccolo!
+# Questo ci porta a pensare che la cifratura non sia propriamente sicura: basti pensare che x % y
+# dove y >> x ("y molto più grande di x") ritorna come risultato x.
+# Quindi il tutto si riduce all'equazione C = M^e da cui è possibile ottenere M = sqrt(C, e), ovvero
+# dalla e-esima radice di C!

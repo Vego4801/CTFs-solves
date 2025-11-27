@@ -1,0 +1,5 @@
+Lunghezza stringa ---> 12
+Str ---> Itz_0nLy_UD2
+
+Trovata debuggando il programma: controlla che la stringa inserita in input sia corretta facendo una serie di controlli a colpi di sottostringhe lunghe 3 caratteri.
+Se un controllo ha successo allora passa al prossimo ("Itz" > "_0n" > "Ly_" > "UD2"), altrimenti termina l'esecuzione del programma

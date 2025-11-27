@@ -1,0 +1,6 @@
+Soluzione:
+
+	--> openssl s_client [-quiet] -connect localhost:30001
+		{'s_client' permette di stabilire una connessione connettendosi (-connect) all'indirizzo e porta dati; in aggiunta, '-quiet' serve per non stampare tutto l'output di s_client ma non è strettamente necessario}
+
+Flag: JQttfApK4SeyHwDlI9SXGR50qclOAil1

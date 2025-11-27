@@ -1,0 +1,12 @@
+Soluzione:	(Dal ridimensionamento della finestra in poi è stato preso da internet!)
+
+	--> cat /etc/passwd | grep "bandit26"	{Contiene varie info tra cui la shell che viene automaticamente lanciata quando viene fatto il login come quell'utente}
+	--> cat /usr/bin/showtext
+	--> (Ridimensionare la finesta del terminale in modo che sia piccola)
+	--> (Premere 'v' per accedere a VIM dal comando 'more' in cui si è)
+	--> (Da VIM, in modalità VISUAL, inserire ":e /etc/bandit_pass/bandit26" per eseguire il comando e ottenere la password del livello successivo)
+	--> (Per ottenere una shell, invece, sempre da VIM, bisogna impostare la variabile d'ambiente locale con ":set shell=/bin/bash" e poi spawnarla con ":shell")
+
+NOTA: Il prossimo livello è da fare con la shell di bandit26 ottenuta secondo il procedimento
+
+Flag: c7GvcKlw9mC7aUQaPx7nwFstuAIBw1o1

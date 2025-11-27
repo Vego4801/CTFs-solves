@@ -1,0 +1,4 @@
+Aggiungere FLAG al carrello (siccome controlla se possiamo comprarla già da index) modificando l'input nascosto della quantità a zero.
+Aggiungere un'altra flag a piacere al carrello.
+Modificare l'input nascosto della quantità della FLAG a 1 e quello dell'altra bandiera a un valore negativo, in modo da avere uno "sconto".
+Premere su "BUY IT!" e il gioco è fatto!

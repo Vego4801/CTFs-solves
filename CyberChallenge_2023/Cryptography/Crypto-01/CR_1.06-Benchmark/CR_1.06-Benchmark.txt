@@ -1,0 +1,12 @@
+# Il servizio, una volta inserita la password, mostra il numero di cicli
+# eseguiti per il controllo della password (nel caso fosse errata).
+# Questo ci può far pensare che sia possibile ottenere la password secondo
+# un "Side-Channel Attack", per la precisione un "Timing Attack": se la
+# password finora inserita è corretta ci metterà di più a controllare la
+# sua correttezza che non con una password a priori errata.
+https://en.wikipedia.org/wiki/Timing_attack
+
+# Con un semplice script è possibile ottenere la password con una semplice
+# tecnica di bruteforcing e tenendo conto del tempo impiegato per ogni
+# carattere (in realtà basta tenersi memorizzato il tempo peggiore e il
+# relativo carattere), formando così la password man mano.

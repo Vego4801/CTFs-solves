@@ -1,0 +1,17 @@
+# Sappiamo buona parte della chiave, nessun byte dell'IV, poco più della metà
+# del ciphertext e l'intero plaintext.
+
+# Secondo queste informazioni è possibile ottenere l'IV: inanzitutto possiamo
+# ottenere la chiave da quei pochi byte di ciphertext che conosciamo, facendo
+# bruteforce su gli ultimi due byte nascosti e verificando che la sua cifratura
+# intermedia (che possiamo tranquillamente ottenere con la modalità ECB, visto
+# che il risultato dei cipher-block è la cifratura diretta del plain-block) sia
+# corrispondente al risultato dello XOR tra il cipher-block che conosciamo e
+# quello precedente di cui conosciamo solo il primo e gli ultimi due byte
+# (basta verificare che il primo e gli ultimi byte della cifratura intermedia
+# corrispondano con quelli dello XOR).
+# Con questo abbiamo ottenuto il primo cipher-block e la chiave!
+
+# Per ottenere l'IV non ci rimane altro che utilizzare le proprietà dello XOR:
+# Sia C1 il primo blocco dell'intero ciphertext e P1 il primo blocco del plaintext,
+# allora C1 = E(P1, K) ^ IV   <==>   IV = E(P1, K) ^ C1

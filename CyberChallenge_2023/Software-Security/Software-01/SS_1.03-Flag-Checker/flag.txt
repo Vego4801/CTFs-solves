@@ -1,0 +1,8 @@
+sum ints:
+54-c3-122-18b-1df-244-2b6-2ea-35e-3c3-422-48b-4c0-51f-587-5dc-649-6aa-6f8-757-7cb-7fb-85a-8cc-8ff-942-9b7-a09-a7c-ae1-b40-ba4-bd5-c4b-cb4-d22-d87
+
+actual values:
+54 6f 5f 69 54 65 72 34 74 65 5f 69 35 5f 68 55 6d 61 4e 5f 74 30 5f 72 33 43 75 52 73 65 5f 64 31 76 69 6e 65
+
+ascii translation:
+To_iTer4te_i5_hUmaN_t0_r3CuRse_d1vine

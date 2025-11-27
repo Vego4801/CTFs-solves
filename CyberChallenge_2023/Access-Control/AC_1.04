@@ -1,0 +1,9 @@
+Read the /home/flag02/flag.txt file.
+
+Log in as level02 with password level02
+
+Solution: The program uses `getenv("USER")` to get the username from the environment and print it.
+		  We can simply change $USER so that it contains the string "/bin/cat /home/flag02/flag.txt".
+		  (e.g: PATH="Pizza; /bin/cat /home/flag02/flag.txt; /bin/echo ")
+		  
+Flag: CCIT{b5b43a28-962d-42ea-92b6-cefa552766a0}

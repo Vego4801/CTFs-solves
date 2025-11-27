@@ -1,0 +1,9 @@
+version: '2'
+services:
+  not_a_bug:
+    build: .
+    ports:
+      - 5006:80
+    #volumes:
+    #  - ./src/:/srv/app
+    command: /usr/bin/supervisord 

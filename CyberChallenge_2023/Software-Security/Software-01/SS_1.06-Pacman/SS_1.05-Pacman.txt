@@ -1,0 +1,34 @@
+# Prima di partire con l'analisi del programma, possiamo già notare come nel 'main'
+# venga inserito un controllo con la syscall 'ptrace', che ci impedisce di debuggare
+# il programma.
+# Questo è facilemente bypassabile impostando il registro di ritorno (eax; rax) con
+# un valore diverso da "-1" oppure, soluzione ancora più comoda, NOP-are la chiamata
+# alla syscall.
+
+# Sistemato questa piccola seccatura, possiamo partire con l'analisi del programma.
+# Il programma parte copiando una serie di stringhe contenenti una serie di caratteri
+# relativi al gioco; da notare che la copia di tali stringhe avviene in forma matriciale
+# Questo si può notare dal fatto che le istruzioni (prese dal decompilatore):
+#		pcVar2 = (char *)strdup(*src);
+#		*src = pcVar2;
+# prendono il pointer creato da strdup e lo salva in 'src', che è un char** !!
+
+# Analizzando un po' il disassemblato possiamo notare che il programma si aspetta (come
+# input) una serie di caratteri relativi al movimento del personaggio; si può notare
+# all'interno della funzione che si occupa della logica del gioco, più precisamente
+# vengono aggiornati gli indici di spostamento del personaggio (quindi per deduzione
+# possiamo concludere che l'input è ridotto ai caratteri 'h', 'j', 'k' ed 'l').
+
+# In questa parte di funzione possiamo anche capire come i caratteri muovono il
+# personaggio: 'h' -> Sx;	'j' -> Giù;		'k' -> Sù;		'l' -> Dx.
+
+# Osservando la matrice di stringhe e lo 'switch' condizionale che porta alla 'exit',
+# possiamo provare a dedurre che lo scopo del programma si quello di muovere il
+# personaggio all'interno della matrice di stringhe, evitando i caratteri "acmnp".
+
+# NOTA: Personalmente, ammetto che è stata una deduzione un po' fortunata, considerando
+# che ci si può facilmente perdere in mezzo a quel blocco d'istruzioni nel 'default'
+
+# Di conseguenza, basta osservare e tracciare il percorso da far fare al personaggio e
+# convertire gli spostamenti nei caratteri accettati dal programma:
+Input Corretto:		llljjjjjllllljjjhhh

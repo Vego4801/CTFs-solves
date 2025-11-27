@@ -1,0 +1,16 @@
+I've hidden the flag very carefully, you'll never manage to find it! Please note that the goal is to find the flag, and not to obtain a shell.
+
+
+
+MAIN: 0x56556560
+
+
+munmap() and map():		(DO IT WITH SYSCALLS, NOT FUNCTION CALLINGs)
+	if munmap() returns -1 then we go on and test next address
+	else remap the address with mmap() and access to that range in order to find the flag
+	
+	We know the program's base address (RSI register contains infos) so from that we can
+	calculate the end of program's mapped addresses.
+
+	get_random_address() gets address between 0x60000000 and 0x7FFF0000.
+	Addresses have length of 0x1000 so we need at most ~131k iterations to get flag's address.

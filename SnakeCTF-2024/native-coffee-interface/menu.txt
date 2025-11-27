@@ -1,0 +1,15 @@
+1. Espresso
+2. Macchiato
+3. Cappuccino
+4. Americano
+5. Vanilla Latte
+6. Caramel Macchiato
+7. Mocha Frappuccino
+8. Peppermint Mocha
+9. Iced Caffè Americano
+10. Smoked Butterscotch Latte
+11. Toasted White Chocolate Mocha
+12. Vanilla Sweet Cream Cold Brew
+13. Caramel Ribbon Crunch Frappuccino
+14. Iced Chocolate Almondmilk Shaken Espresso
+15. S'mores Frappuccino with Marshmallow-Infused Whipped Cream and Chocolate Drizzle

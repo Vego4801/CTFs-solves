@@ -1,0 +1,7 @@
+# In questa challenge abbiamo pochi dati controllabili per poter ottenere separatamente
+# le due immagini, ma questo non ci deve preoccupare: possiamo ottenere le due immagini
+# "unite" sempre grazie all'utilizzo delle proprietà dello XOR.
+# Prendendo il nome delle variabili dallo script della challenge:
+# se "enc1 = im1np ^ knp" e "enc2 = im2np ^ knp", allora "knp = enc1 ^ im1np" e
+# "knp = enc2 ^ im2np", per cui "enc1 ^ im1np = enc2 ^ im2np".
+# Da qui è possibile ottenere "im1np ^ im2np = enc1 ^ enc2"!

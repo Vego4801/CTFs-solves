@@ -1,0 +1,6 @@
+# In questa challenge è presente una funzione chiamata 'print_safe_contents' che
+# permette di stampare la flag a schermo.
+# Siccome tale funzione viene chiamata in nessun punto del programma, bisogna
+# patchare il binario in modo tale che chiami la funzione.
+# Per semplicità è stata modificata una chiamata a funzione già esistente (per
+# la cronaca, la 'gets') sostituendola con quella della funzione.

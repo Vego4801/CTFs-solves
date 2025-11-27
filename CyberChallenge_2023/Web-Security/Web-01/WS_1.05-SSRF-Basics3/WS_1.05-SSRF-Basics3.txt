@@ -1,0 +1,7 @@
+# Bisogna far fare al server una richiesta a un altro server che, a sua volta, lo
+# reindirizzi verso 'http://localhost/get_flag.php' (classico scenario SSRF suppongo).
+# Per fare ciò, senza troppa fatica, verrà utilizzato 'http://requestrepo.com/#/' da
+# cui è possibile captare le richieste fatte e modificarne la risposta.
+# Modificare la risposta a una redirect a localhost, copiare e incollare l'URL che viene
+# fornita all'interno del sito, e il gioco è fatto
+# Per la redirect serve l'Header 'Location: http://localhost/get_flag.php'!

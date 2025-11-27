@@ -1,0 +1,10 @@
+# Qui è un po' difficile intuire cosa si possa fare con i messaggi cifrati.
+# Nella descrizione della challenge si parla di una stessa chiave utilizzata per tutto.
+# Da questa informazione (e anche un po' di aiuto anche dal titolo della challenge stessa)
+# possiamo provare a verificare se il problema è proprio il Many-Time-Pad.
+
+# Sfruttiamo il tool che ci permette facilmente di ottenere il testo cifrato, il quale
+# sfrutta il fatto che sia possibile ottenere il testo in chiaro facendo XOR tra i ciphertexts.
+https://github.com/CameronLonsdale/MTP
+
+# Una volta completato il testo (o la maggior parte di esso) è possibile ottenere la flag!

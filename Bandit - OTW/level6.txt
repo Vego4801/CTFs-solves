@@ -1,0 +1,9 @@
+
+Soluzione:
+
+	--> cd ./inhere
+	--> find . -type f -size 1033c -not -executable -exec file {} + 2>/dev/null | grep "ASCII text"
+		{Trova i file di 1033 bytes, non eseguibili ed esegue per ogniuno di loro il comando 'file'; tutti gli errori vengono reindirizzati a /dev/null.}
+	--> cat ./maybehere07/.file02
+
+Flag: P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU

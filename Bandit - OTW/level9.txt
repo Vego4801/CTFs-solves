@@ -1,0 +1,5 @@
+Soluzione:
+
+	--> sort data.txt | uniq -u
+
+Flag: EN632PlfYiZbn3PhVK3XOGSlNInNE00t

@@ -1,0 +1,5 @@
+Soluzione:
+	--> ls .
+	--> cat readme
+
+Flag: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL

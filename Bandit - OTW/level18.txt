@@ -1,0 +1,5 @@
+Soluzione:
+
+	--> diff password.old password.new
+
+Flag: hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg

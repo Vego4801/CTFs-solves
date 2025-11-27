@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <form method="POST">
+    <input type="hidden" name="csrf" value="{{ csrf|e }}">
+    <div class="field">
+      <div class="control">
+        <input type="text" name="title" placeholder="Title">
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <textarea class="textarea" name="body"
+          placeholder="Write here your post. You can format using bbcode. Supported formats are: [b]bold[/b], [i]italic[/i] and [img]http://include.an.image/[/img]"></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <button class="button dark_green has-text-white">Public your post!</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% if error %}
+<div class="container">
+  <article class="message is-danger">
+    <div class="message-header">
+      <p>Error</p>
+      <button class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      {{ error }}
+    </div>
+  </article>
+</div>
+{% endif %}
+{% endblock %}

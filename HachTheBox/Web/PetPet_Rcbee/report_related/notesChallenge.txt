@@ -1,0 +1,5 @@
+This challenge has the "filename injection" problem	(util.py -- petpet function)
+We can craft a payload into an image which should respect the parameters for the upload.
+
+(See san-francesco.jpeg file for the payload)
+This copy the content in the flag file into another file saved in "/static/petpet" which we can navigate in it and open every file inside it.

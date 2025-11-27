@@ -1,0 +1,18 @@
+flag03 lets you write messages on the /home/flag03/messages.txt file in her home directory.
+However, you can only access the file from a VIM instance she provides.
+
+Find the flag file.
+
+WARNING: VIM is hard.
+WARNING 2: VIM is really hard.
+
+Log in as level03 with password level03
+
+Solution: VIM opens the "messages.txt" file, located in the "/home/flag03/" folder.
+		  Since VIM is running with the flag03 Effective UID, we can open the VIM directory browser
+		  in VIM normal mode.
+		  With ":e ." we can list files in the "/home/level03/" folder and then navigate to the
+		  "/home/flag03" folder and find the flag file ("FlAg.TxT").
+		  We can also directly navigate to flag03 home by typing :e /home/flag03/ in VIM.
+
+Flag: CCIT{c1cd2007-55bb-4a40-9f91-21f5e2207db1}

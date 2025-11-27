@@ -1,0 +1,12 @@
+# In questo caso la cifratura avviene in due fasi: la prima volta viene fatto uno XOR tra il testo e una
+# OTP (One-Time Password) e la seconda cifratura viene effettuata cifrando il testo secondo l'algoritmo di
+# cifratura DES ed eseguendo lo XOR tra il risultato di tale cifratura con la stessa OTP di prima.
+
+# Il trucco sta nell'utilizzare una delle chiavi deboli di DES
+Chiavi deboli: https://en.wikipedia.org/wiki/Weak_key
+
+# Utilizzando una delle chiavi deboli è possibile invertire la cifratura eseguendo due volte l'operazione
+# di cifratura e ottenendo il testo in chiaro!
+# Quindi basta passare una delle chiavi deboli quando viene richiesta la flag cifrata, il ciphertext ottenuto
+# viene passato all'operazione di cifratura del testo del programma insieme alla stessa chiave utilizzata
+# precedentemente e si ottiene la flag in esadecimale

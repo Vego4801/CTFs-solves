@@ -1,0 +1,13 @@
+# Analizzando il binario (grazie anche ai decompilatori come Ghidra) possiamo notare che l'intero programma
+# gira attorno alla funzione 'shell' che "emula" una shell minimalissima.
+
+# All'interno di questa funzione possiamo anche notare come sia presente, all'interno di un if-statement,
+# un gadget che permette di saltare direttamente allo stack ("jmp esp")
+# Inoltre possiamo osservare un buffer di dimensione fissa a 40 bytes!
+
+# Abbiamo tutto quello che serve per spawn-are una shell: l'indirizzo del gadget e il numero di bytes del
+# buffer.
+
+# Detto questo, il piano è sovrascrivere il registro $eip con l'indirizzo del gadget in modo che la funzione,
+# dopo aver eseguito l'istruzione 'ret', salti direttamente al gadget per saltare nuovamente allo stack, in
+# cui inseriremo lo shellcode per spawn-are la nostra shell.

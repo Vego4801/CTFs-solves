@@ -1,0 +1,6 @@
+Soluzione:
+
+	--> ssh bandit.labs.overthewire.org -p 2220 -l bandit18 sh
+		{Lancia il comando 'sh' invece che far partire 'bash' per aggirare ".bashrc" siccome viene eseguito quando viene fatta la login con bash}
+
+Flag: awhqfNnAbc1naukrpqDYcF95h7HoMTrC 

@@ -1,0 +1,15 @@
+- Fare un Vault e un'App che utilizzi tale Vault in un profilo creato
+- Tramite lo script Python offerto nel sito, mandare una richiesta di autenticazione a quell'app che utilizza
+ancora quel Vault di nostra appartenenza.
+- Il token di attesa persiste per tutta la durata del pending e addirittura quando la richiesta viene rifiutata!
+- Un'idea potrebbe essere quella di rifiutare la richiesta, modificare l'app al vault della flag per poi accettare
+il token di attesa per quell'app
+- C'è un input nascosto con il valore il token di attesa che ha fatto richiesta per quell'app
+- Dopo aver rifiutato, cambiare il Vault dell'app al Vault della flag. Dopo è possibile creare un'altra app che
+utilizzi il nostro Vault, mandare una richiesta di autenticazione a quest'ultima app e, prima di accettare, modificare
+il valore dell'input nascosto al valore del wait_token rifiutato (che ancora persiste) in modo che venga accettato
+(si può verificare il risultato con check_auth nello script)
+- Il wait_token è sempre legato all'app a cui è stata fatta richiesta, quindi accettarlo significa dare permesso all'attuale
+app che adesso utilizza il valut della flag!
+- Fatto il punto precedente, siamo riusciti ad autenticarci sul Vault della flag tramite la nostra app che prima utilizzava
+il nostro vault e poi è stato cambiato a quello della flag.

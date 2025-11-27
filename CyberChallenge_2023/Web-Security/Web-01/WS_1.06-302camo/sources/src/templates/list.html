@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class = "title">
+    Your posts
+  </h1>
+{% if posts|length > 0 %}
+{% for post in posts %}
+
+  <div class="columns has-text-centered has-background-light">
+    <div class="column is-three-quarters"><strong>{{ post.getTitle()|e }}</strong></div>
+    <div class="column">
+        <a href="/view.php?id={{ post.getId()|e }}" class="button">View</a>
+    </div>
+    <div class="column">
+      <a href="/delete.php?id={{ post.getId()|e }}&csrf={{ csrf|e }}" class="button">
+        Delete
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <p>You have no posts, write a post <a class="" href="/post.php">here!</a></p>
+  {% endif%}
+  </div>
+{% endblock %}

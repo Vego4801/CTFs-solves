@@ -1,0 +1,10 @@
+Soluzione:
+
+	--> mkdir /tmp/pippopalla && cd /tmp/pippopalla
+	--> git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
+	--> git log -p
+	--> git branch -r
+	--> git checkout dev
+	--> git log -p
+
+Flag: xbhV3HpNGlTIdnjUrdAlPzc2L6y9EOnS

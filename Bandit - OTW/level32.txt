@@ -1,0 +1,12 @@
+Soluzione:
+
+	--> mkdir /tmp/pippopalla && cd /tmp/pippopalla
+	--> git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
+	--> cd ./repo
+	--> echo "May I come in?" > key.txt
+	--> rm .gitignore	{All'interno è stato specificato di ignorare i '.txt'}
+	--> git add key.txt
+	--> git commit -m "Adding key.txt"
+	--> git push origin master
+
+Flag: rmCBvG56y58BXzv98yZGdO7ATVL5dW8y

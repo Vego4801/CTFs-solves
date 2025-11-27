@@ -1,0 +1,3 @@
+Il programma chiamerebbe una funzione che stamperebbe dei caratteri ma non viene
+mai chiamata a causa di una Jmp che salta direttamente alla fine.
+Basta patchare la Jmp con delle NOP ed eseguire il programma modificato.

@@ -1,0 +1,13 @@
+Use the /home/flag01/flag01 executable to read flag.txt.
+Source code available at /home/flag01/flag01.c
+
+Log in as level01 with password level01
+
+Solution: The program uses `system("/usr/bin/env echo and now what?");` to print the string.
+		  "/usr/bin/env" ensures that echo is run using the path defined in PATH in the environment.
+		  So we can define our own `echo` program (which will open the flag; it can be a binary or a
+		  shell script, it doesn't matter) and modify PATH so that it will have the actual path ("./")
+		  at the beginning.
+		  This will ensure that the system searches in our actual directory first.
+
+Flag: CCIT{0fc0a412-4184-4c9d-af48-498f7bc713db}

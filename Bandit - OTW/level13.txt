@@ -1,0 +1,15 @@
+Soluzione:
+
+	--> mkdir /tmp/pippo/ && cp data.txt /tmp/pippo/data.txt && cd /tmp/pippo
+	--> xxd -r data.txt > data2.bin
+	--> file data2.bin {notiamo essere un file compresso in gzip}
+	--> mv data2.bin data2.gz && gzip -d data2.gz {rinomina e decomprimi}
+	--> file data2 {notiamo essere un file compresso in bzip2}
+	--> mv data2 data2.bz2 && bzip2 -d data2.bz2 {stessa cosa di prima}
+	--> file data2 {ancora una volta vediamo essere gzip}
+	--> mv data2 data2.gz && gzip -d data2.gz {rinomina e decomprimi}
+	--> file data2 {qui notiamo essere nu archivio tar}
+	--> mv data2 data2.tar && tar -xf data2.tar
+	--> ... {qui il procedimento è simile ai punti precedenti!}
+
+Flag: wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw

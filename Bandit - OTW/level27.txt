@@ -1,0 +1,7 @@
+Soluzione:
+
+	--> ./bandit27-do cat /etc/bandit_pass/bandit27
+
+NOTA: Per poterlo risulvere bisogna ottenere la shell dal livello precedente!
+
+Flag: YnQpBuifNMas1hcUFk70ZmqkhUU2EuaS

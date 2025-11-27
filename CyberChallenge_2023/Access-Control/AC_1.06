@@ -1,0 +1,10 @@
+Read the /home/flag04/flag.txt file.
+
+Log in as level04 with password level04
+
+Solution: To bypass this check we can simply create a symlink to the file in a writable
+		  directory (ln -s /home/flag04/flag.txt /home/level04/bubba) such that the
+		  symlink does not contain the string "flag.txt".
+		  Then we can use the program to read from our symlink.
+
+Flag: CCIT{4c886115-a6ca-4141-b0a2-69a25cadceaf}

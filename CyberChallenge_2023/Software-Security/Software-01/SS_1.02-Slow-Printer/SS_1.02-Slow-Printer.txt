@@ -1,0 +1,5 @@
+# Questo programma stampa la flag dopo un ammontare di tempo spropositato dovuto
+# alla 'sleep' chiamata all'interno di un'altra funzione che a sua volta viene
+# chiamata nel 'main'.
+# La soluzione è semplicemente "nop-are" (inserire delle NOP) quella chiamata a
+# funzione in modo che il programma non ci metta un'eternità a stampare la flag.

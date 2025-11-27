@@ -1,0 +1,34 @@
+# Avendo la possibilità di poter sbiricare i sorgenti dell'applicazione,
+# possiamo notare 3 file importanti per la challenge: 'get_flag.php',
+# Post.php e, dal nome della challenge, 'camo.php'.
+# Nel primo file possiamo vedere che per richiedere la flag dobbiamo
+# far costruire una richiesta al server (SSRF), invece in 'Post.php'
+# possiamo notare la funzione 'format' che costruisce un link allo
+# script 'camo.php' se passato correttamente un link; importante
+# notare che vengono passati anche i parametri 'url' e 'hmac'.
+# Infine, in 'camo.php' vengono fatti un paio di controlli per rendere
+# più complicato l'accesso a risorse interne al server.
+
+# HMAC: ottenuto tramite la funzione 'format' di 'Post.php' senza problemi;
+# LOCALHOST: controllo su localhost; bypassabile facilmente con '0.0.0.0'.
+# Dopo aver inserito il link nel form, lo script genererà un link simile:
+/camo.php?url=<ENCODED-URL>&hmac=<HMAC>
+
+# La parte più complicata dello script è il bypassare il controllo sul
+# Content-Type, che deve essere un formato tra quello messi in whitelist.
+# Siccome il Content-Type è un header che troviamo nelle risposte HTTP,
+# non abbiamo modo di poterglielo passare direttamente.
+
+# Utilizziamo uno servizio gratuito di analisi di richieste HTTP e DNS
+https://github.com/adrgs/requestrepo
+https://requestrepo.com/#
+
+# Modifichiamo la risposta che daremo al server aggiungengo come headers:
+Code: 302
+Content-Type: image/svg		# provandoli, SVG è quello che ritorna la flag 
+Location: http://0.0.0.0/get_flag.php
+
+# Copia e incolliamo la URL che ci viene data nella sessione di requestrepo
+# (URL di sessione fornita nella pagina) nel form del post che verrà poi
+# postato e accediamo a 'camo.php' con i parametri ottenuti.
+# Verrà scaricato un file PHP contenente la flag!

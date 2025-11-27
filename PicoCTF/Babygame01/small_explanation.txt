@@ -1,0 +1,2 @@
+Il player ha [0]asse X; [1]asse Y; [2]possiede flag (è un array).
+Basta usicre fuori dalla mappa per andare a sovrascrivere il valore della terza posizione dell'array a un valore > 0 e ottenere la flag muovendosi verso la X

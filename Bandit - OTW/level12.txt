@@ -1,0 +1,6 @@
+Soluzione:
+
+	--> cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+		{transla i caratteri nell'intervallo A-Z e a-z di 13 posizioni (vedi link wikipedia fornito dal sito} 
+
+Flag: JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  camo302:
+    build: .
+    ports:
+      - 5010:5010
+    volumes:
+      - ./src/:/srv/app
+      - /srv/app/vendor
+    environment:
+      FLAG: CCIT{REDACTED}
+      SECRET: eWFw7Li8jKImzw

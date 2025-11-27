@@ -1,0 +1,6 @@
+Soluzione:
+
+	--> ssh -i sshkey.private localhost -l bandit14 -p 2220
+	--> cat /etc/bandit_pass/bandit14
+
+Flag: fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq

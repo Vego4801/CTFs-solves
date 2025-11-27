@@ -1,0 +1,11 @@
+# Il programma permette di eseguire del codice assembly che viene passato da input,
+# in un'area di memoria mappata a runtime da 'mmap'.
+# Purtroppo vengono aggiunte delle contromisure per determinate istruzioni quali
+# 'syscall', 'sysret' e 'int 0x80'; tutte istruzioni per le chiamate a sistema!
+
+# Fortunatamente, guardando meglio il disassemblato del programma, possiamo notare
+# un fantastico gadget che ci torna utile: 'int 0x80' (il programma è a 32-bit).
+
+# Non ci rimane altro che creare lo shellcode per spawn-are una shell, eliminare la
+# parte di tale shellcode riguardo la syscall (proprio perché è nella blacklist) e
+# sostituirla con un salto a quel gadget (Vedi commenti nello script)!

@@ -1,0 +1,16 @@
+# Possiamo subito notare che il programam utilizza un buffer a dimensione fissa con una
+# funzione di input che accetta un qualsiasi numero di caratteri dall'utente (Buff. Overflow).
+
+# Notiamo inoltre che tale programma ha una funzione che permette di spawn-are una shell Bash.
+# Questo ci indica che possiamo provare a modificare il flusso del programma in modo da poter
+# finire all'interno di quella funzione.
+# Per farlo possiamo andare a modificare il valore del registro $rip salvato nello stack quando
+# viene chiamata la funzione 'main' in maniera tale che quando tale funzione arriverà a eseguire
+# l'istruzione 'ret', andrà a recuperare l'indirizzo manipolato e a saltare a tale indirizzo.
+
+# Debuggando e analizzando il programma, possiamo osservare che non sono esattamente 1024 bytes
+# ma sono leggermente di più quelli che ci servono (1048 bytes finali).
+
+# Dopo aver scritto lo script in cui costruiamo il payload e lo mandiamo al programma in remoto,
+# possiamo interagire (tramite la funzione 'interactive' di pwntools) con la shell spawn-ata per
+# ottenere la flag.

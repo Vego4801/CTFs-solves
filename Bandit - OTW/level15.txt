@@ -1,0 +1,5 @@
+Soluzione:
+
+	--> nc localhost 30000 {si collega con netcat e bisogna inserire la password}
+
+Flag: jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt

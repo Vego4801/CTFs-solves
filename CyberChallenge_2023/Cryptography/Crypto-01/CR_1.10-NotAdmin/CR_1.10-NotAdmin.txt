@@ -1,0 +1,12 @@
+# La flag è ottenibile solo se autenticati come admin!
+# Quindi lo scopo del nostro attacco è quello di modificare il cookie che ci viene dato dopo
+# la registrazione per autenticarci come tali; è possibile grazie alla tecnica di Bitflipping.
+
+# Per semplicità inseriamo uno username di lunghezza 1 per ottenere una lunghezza del cookie
+# esattamente di 16B (ma è possibile inserire una lunghezza arbitraria dello username) in modo
+# da poter operare direttamente sull'IV (da notare che, siccome l'input è esattamente della
+# lunghezza del blocco, l'ultimo blocco di ciphertext è interamente di padding!).
+# Il resto è abbastanza semplice: basta recuperare il valore dell'ultimo byte di D(C1, K)[last]
+# con IV[last] ^ P1[last] (P1[last] = 0x30) e cambiare il valore dell'ultimo byte dell'IV in modo
+# che P1[last] = D(C1, K)[last] ^ IV_CHANGED[last] = 0x31 (ottenibile facendo IV_CHANGED[last] =
+# D(C1, K) ^ 0x31).

@@ -1,0 +1,8 @@
+Soluzione:
+
+	--> mkdir /tmp/pippopalla && cd /tmp/pippopalla
+	--> git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+	--> git log {Trovare il codice del commit "fix info leak"}
+	--> git log -p	{Mostra la differenza di ogni commit}
+
+Flag: tQKvmcwNYcFS6vmPHIUSI3ShmsrQZK8S

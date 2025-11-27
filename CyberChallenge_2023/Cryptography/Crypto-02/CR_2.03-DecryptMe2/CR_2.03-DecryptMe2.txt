@@ -1,0 +1,7 @@
+# In questa seconda parte della challenge abbiamo valori decidamente più alti rispetto a quella di prima.
+# La tecnica utilizzata precedentemente richiederebbe un tempo esageratamente elevato oppure non si
+# troverebbe alcuna risposta valorida su FactorDB.
+# Il trucco però sta nel fatto che possiamo comunque utilizzare i valori per la cifratura e cifrare tutti
+# i possibili caratteri associando, come coppia, a ogni risultato il carattere in chiaro.
+# Così facendo è poi possibile scorrere il ciphertext e accedere al dizionario di caratteri cifrati e
+# ricostruire il plaintext man mano.

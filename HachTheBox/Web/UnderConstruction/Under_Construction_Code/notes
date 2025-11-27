@@ -1,0 +1,7 @@
+- Su JWTHelper c'è la possibilità di usare l'algoritmo HS256 (sincrono) per verificare i dati (usa la chiave pubblica per encryptare e verificare)
+Modificando l'header del JWT (parlo del cookie di sessione) si può passare all'algoritmo HS256 (ovviamente usando una signature valida) e validare il payload passato
+(Vedi script python JWT ideato per la creazione di cookie validi)
+
+- Su DBHelper c'è una vulnerabilità di SQL Injection da exploitare tramite cookies di sessione
+
+- La differenza tra HS256 e RS256 è che il primo usa la chiave per criptare e validare i dati mentre RS256 usa un paio di chiavi: chiave privata per generare la signature e la chiave pubblica per validarla

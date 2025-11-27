@@ -1,0 +1,11 @@
+# Stesso concetto di visto challenge fa: basta unp XOR tra IV e plaintext attuale per ottenere il byte
+# del decrypt intermedio per poi modificare l'IV facendo XOR tra byte del decrypt intermedio e il nuovo
+# valore da dare al plaintext.
+# Una volta cambiato il ciphertext in modo che alla sua decifratura ci autentichi come admin il gioco è
+# fatto: basta seguire la logica del programma per farsi generare un token per l'esecuzione del comando
+# "get_flag" (eseguibile solo se si è admin) ed eseguire tale comando passando il token precedentemente
+# generato.
+
+# Per fare ciò utilizziamo come nome utente "admjn": la sottostringa "admj" rientrerà nel primo blocco del
+# ciphertext mentre "n" finirà nel secondo, ma questo non ci importa perché riusciamo a modificare l'ultimo
+# byte del primo plain-block in modo che il risultato sia "admi" e alla decifratura risulti essere "admin"!

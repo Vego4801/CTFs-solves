@@ -1,0 +1,12 @@
+# Dalla sezione 'network' dello strumento d'ispezione del browser (in realtà si può
+# notare direttamente anche guardando un po' la pagina HTML) si può notare come ci
+# sia uno script PHP (static.php) che include vari file all'interno della pagina.
+# Tale script prende come parametro (static_file) nella URL il nome del file da
+# includere.
+# Da qui si può capire che si può scaricare direttamente lo script PHP provando
+# a risalire il path dell'applicazione
+<blablabla>/static.php?static_file=../static.php
+
+# Come si può notare è una classica concatenazione di stringhe, quindi è possibile
+# ripercorrere da '/static' il path per raggiungere la flag
+<blablabla>/static.php?static_file=../../../../flag.txt

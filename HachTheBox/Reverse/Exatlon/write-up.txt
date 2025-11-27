@@ -1,0 +1,35 @@
+Guardando in strings e nel dump esadecimale possiamo notare che l'eseguibile è decompresso con UPX!
+Analizzando l'eseguibile decompresso, possiamo vedere la parte d'inserimento dell'input dell'utente
+che esegue un confronto con la stringa: "1152 1344 1056 1968 1728 816 1648 784 1584 816 1728 1520
+		1840 1664 784 1632 1856 1520 1728 816 1632 1856 1520 784 1760 1840 1824 816 1584 1856 784
+		1776 1760 528 528 2000".
+
+Analizzando la funzione 'main', si può notare la chiamata alla funzione 'exatlon' che prende come
+argomenti due parametri: il primo è la variabile in cui verrà salvato risultato di tutto il processo
+mentre il secondo è la stringa dell'utente presa in input.
+
+All'interno della funzione 'exatlon' viene eseguita la creazione della stringa risultato: crea una
+stringa vuota al suo interno, prende man mano ogni carattere della stringa in input e ci applica lo
+shift a sinistra di 4-bit, trasforma in stringa questo valore e lo concatena alla stringa che sarà
+poi il risultato di tutto il processo.
+
+Quindi per ottenere la flag, prendiamo la stringa utilizzata per fare la comparazione nel main e,
+con un semplice script, convertiamo tutti i numeri in valori decimali che poi verranno convertiti in
+caratteri ASCII.
+
+### Script fatto direttamente nell'interprete Python
+string = '1152 1344 1056 1968 1728 816 1648 784 1584 816 1728 1520 1840 1664 784 1632 1856 1520 1728\
+			816 1632 1856 1520 784 1760 1840 1824 816 1584 1856 784 1776 1760 528 528 2000'
+			
+list_ints = sintrg.split(' ')
+
+for x in list_ints:
+	x = int(x)
+	print(x >> 4, end = ' ')
+
+
+Risultato: 72 84 66 123 108 51 103 49 99 51 108 95 115 104 49 102 116 95 108 51 102 116 95 49 110
+			115 114 51 99 116 49 111 110 33 33 125
+
+Conversione: HTB{l3g1c3l_sh1ft_l3ft_1nsr3ct1on!!}
+
