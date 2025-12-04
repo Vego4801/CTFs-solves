@@ -9,6 +9,9 @@ ld = ELF("./ld-2.35.so")
 sock = conn = process()
 # sock = conn = remote("tethys.picoctf.net", 57462)
 
+# Note: this solve I found after solving the challenge used the same strategy to leak heap and libc.
+#       However, it uses an alternative approach to pop a shell by using `setcontext` which is very interesting.
+#       The link for this solve is this: https://eth007.me/blog/posts/high-frequency-troubles/
 
 def send_ping(content, sz):
     sock.recvuntil(b"PKT_RES")
