@@ -6,3 +6,5 @@ Over the years, I have changed my approach and (hopefully) improved my problem-s
 Most of them are `pwn` because it is my favourite category and I am focusing on it more than any other category.
 
 The idea behind this repository is mainly to keep track of everything I solve in order to brush up on some techniques or ideas I have used in the past, as well as to be of interest to anyone who comes across it.
+
+Most of the solves do not have a proper writeup due to their simplicity or simply because I forgot to add exhaustive comments :D
