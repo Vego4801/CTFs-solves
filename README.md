@@ -1,4 +1,4 @@
-# ctfs-solves
+# CTFs-solves
 A collection of almost all the CTF challenges I have solved in the past.
 
 Over the years, I have changed my approach and (hopefully) improved my problem-solving skills, as well as my exploitation techniques.
