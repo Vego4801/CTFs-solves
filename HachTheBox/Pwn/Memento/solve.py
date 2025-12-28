@@ -38,7 +38,7 @@ def reset():
 
 
 # NOTE: I didn't manage to submit the flag since I don't know where's located
-#       but I got the shell, so for not it's fine as is
+#       but I got the shell, so for now it's fine as is
 def main():
     r = conn()
 
