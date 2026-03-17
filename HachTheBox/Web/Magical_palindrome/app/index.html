@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet">
+    <title>Magical Palindrome Quest 🌟✨</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            background: url('https://images2.alphacoders.com/122/1221890.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            font-size: 2vmin;
+            text-align: center;
+            animation: glow 2s infinite alternate;
+        }
+        h1 {
+            font-size: 8vmin;
+            line-height: 1em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            line-height: 1.5em;
+            margin-top: 1em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            margin-top: 2em;
+        }
+        input {
+            padding: 0.5em;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            margin-right: 1em;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            padding: 0.5em 1em;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffc107;
+            color: #332c2c;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background-color: #ffdd4b;
+        }
+        #result {
+            color: gold;
+            margin-top: 2em;
+            font-size: 2.5em;
+            animation: glow 2s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <h1>Embark on a Magical Palindrome Quest 🌟✨</h1>
+    <p>Discover the hidden treasure by casting the perfect palindrome spell!</p>
+    <form id="form" oninput="result.textContent = ''">
+        <input name="palindrome" type="text" placeholder="Enter your magical palindrome">
+        <button type="submit">Cast Spell</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        const form = document.getElementById('form');
+        const result = document.getElementById('result');
+
+        form.onsubmit = async (event) => {
+            event.preventDefault();
+            const palindrome = new FormData(form).get('palindrome');
+            const res = await fetch('/', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({palindrome}),
+            });
+            result.textContent = await res.text();
+        };
+    </script>
+</body>
+</html>

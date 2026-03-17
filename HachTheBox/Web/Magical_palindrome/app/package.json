@@ -1,0 +1,11 @@
+{
+  "name": "magical_palindrome",
+  "scripts": {
+    "start": "npm install && node main.mjs"
+  },
+  "author": "Anekant",
+  "dependencies": {
+    "@hono/node-server": "^1.2.0",
+    "hono": "^4.10.5"
+  }
+}
