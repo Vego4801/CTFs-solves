@@ -11,7 +11,7 @@ from pyngrok import ngrok
 REGISTER_USER = len(sys.argv) > 1 and sys.argv[1] == "-r"
 BASE_URL = "http://localhost:1337"
 # BASE_URL = "http://154.57.164.74:30798"
-NGROK_TOKEN = "3BccAvhTXRMmTpbzwfl7H6El8re_4L6cbTCToitvAXRRYoqcx"
+NGROK_TOKEN = "REDACTED"    # Needs to be taken from the NGrok dashboard
 FLASK_PORT = 8001
 
 app = Flask(__name__)
