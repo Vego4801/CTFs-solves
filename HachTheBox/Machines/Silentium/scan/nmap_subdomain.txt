@@ -1,0 +1,17 @@
+# Nmap 7.94SVN scan initiated Mon Apr 13 16:30:04 2026 as: nmap -sC -sV -p- -T4 --min-rate 5000 -oA Silentium/nmap/nmap_subdomain.txt staging.silentium.htb
+Nmap scan report for staging.silentium.htb (10.129.29.4)
+Host is up (0.058s latency).
+rDNS record for 10.129.29.4: silentium.htb
+Not shown: 65533 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.15 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 0c:4b:d2:76:ab:10:06:92:05:dc:f7:55:94:7f:18:df (ECDSA)
+|_  256 2d:6d:4a:4c:ee:2e:11:b6:c8:90:e6:83:e9:df:38:b0 (ED25519)
+80/tcp open  http    nginx 1.24.0 (Ubuntu)
+|_http-title: Flowise - Build AI Agents, Visually
+|_http-server-header: nginx/1.24.0 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Apr 13 16:30:30 2026 -- 1 IP address (1 host up) scanned in 26.05 seconds

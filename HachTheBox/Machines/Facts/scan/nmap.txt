@@ -1,0 +1,78 @@
+# Nmap 7.94SVN scan initiated Wed Apr 15 10:30:52 2026 as: nmap -v -sC -sV -p- -T4 --max-rate 5000 -oA nmap.txt 10.129.31.198
+Nmap scan report for 10.129.31.198 (10.129.31.198)
+Host is up (0.055s latency).
+Not shown: 65532 closed tcp ports (conn-refused)
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 9.9p1 Ubuntu 3ubuntu3.2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 4d:d7:b2:8c:d4:df:57:9c:a4:2f:df:c6:e3:01:29:89 (ECDSA)
+|_  256 a3:ad:6b:2f:4a:bf:6f:48:ac:81:b9:45:3f:de:fb:87 (ED25519)
+80/tcp    open  http    nginx 1.26.3 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Did not follow redirect to http://facts.htb/
+|_http-server-header: nginx/1.26.3 (Ubuntu)
+54321/tcp open  unknown
+| fingerprint-strings: 
+|   GenericLines, Help, Kerberos, RTSPRequest, SSLSessionReq, TLSSessionReq, TerminalServerCookie: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|     Request
+|   GetRequest: 
+|     HTTP/1.0 400 Bad Request
+|     Accept-Ranges: bytes
+|     Content-Length: 276
+|     Content-Type: application/xml
+|     Server: MinIO
+|     Strict-Transport-Security: max-age=31536000; includeSubDomains
+|     Vary: Origin
+|     X-Amz-Id-2: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8
+|     X-Amz-Request-Id: 18A67A93FB7A1A53
+|     X-Content-Type-Options: nosniff
+|     X-Xss-Protection: 1; mode=block
+|     Date: Wed, 15 Apr 2026 08:31:19 GMT
+|     <?xml version="1.0" encoding="UTF-8"?>
+|     <Error><Code>InvalidRequest</Code><Message>Invalid Request (invalid argument)</Message><Resource>/</Resource><RequestId>18A67A93FB7A1A53</RequestId><HostId>dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8</HostId></Error>
+|   HTTPOptions: 
+|     HTTP/1.0 200 OK
+|     Vary: Origin
+|     Date: Wed, 15 Apr 2026 08:31:19 GMT
+|_    Content-Length: 0
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port54321-TCP:V=7.94SVN%I=7%D=4/15%Time=69DF4CD3%P=x86_64-pc-linux-gnu%
+SF:r(GenericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\
+SF:x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20B
+SF:ad\x20Request")%r(GetRequest,2B0,"HTTP/1\.0\x20400\x20Bad\x20Request\r\
+SF:nAccept-Ranges:\x20bytes\r\nContent-Length:\x20276\r\nContent-Type:\x20
+SF:application/xml\r\nServer:\x20MinIO\r\nStrict-Transport-Security:\x20ma
+SF:x-age=31536000;\x20includeSubDomains\r\nVary:\x20Origin\r\nX-Amz-Id-2:\
+SF:x20dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8\r\n
+SF:X-Amz-Request-Id:\x2018A67A93FB7A1A53\r\nX-Content-Type-Options:\x20nos
+SF:niff\r\nX-Xss-Protection:\x201;\x20mode=block\r\nDate:\x20Wed,\x2015\x2
+SF:0Apr\x202026\x2008:31:19\x20GMT\r\n\r\n<\?xml\x20version=\"1\.0\"\x20en
+SF:coding=\"UTF-8\"\?>\n<Error><Code>InvalidRequest</Code><Message>Invalid
+SF:\x20Request\x20\(invalid\x20argument\)</Message><Resource>/</Resource><
+SF:RequestId>18A67A93FB7A1A53</RequestId><HostId>dd9025bab4ad464b049177c95
+SF:eb6ebf374d3b3fd1af9251148b658df7ac2e3e8</HostId></Error>")%r(HTTPOption
+SF:s,59,"HTTP/1\.0\x20200\x20OK\r\nVary:\x20Origin\r\nDate:\x20Wed,\x2015\
+SF:x20Apr\x202026\x2008:31:19\x20GMT\r\nContent-Length:\x200\r\n\r\n")%r(R
+SF:TSPRequest,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20t
+SF:ext/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x
+SF:20Request")%r(Help,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Ty
+SF:pe:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\
+SF:x20Bad\x20Request")%r(SSLSessionReq,67,"HTTP/1\.1\x20400\x20Bad\x20Requ
+SF:est\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20
+SF:close\r\n\r\n400\x20Bad\x20Request")%r(TerminalServerCookie,67,"HTTP/1\
+SF:.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=
+SF:utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request")%r(TLSSessi
+SF:onReq,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/p
+SF:lain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Req
+SF:uest")%r(Kerberos,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Typ
+SF:e:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x
+SF:20Bad\x20Request");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Apr 15 10:32:54 2026 -- 1 IP address (1 host up) scanned in 122.49 seconds

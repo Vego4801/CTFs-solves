@@ -1,0 +1,23 @@
+thomas@thomas-ubuntu:~/Desktop$ gobuster dir --url http://silentium.htb --wordlist wordlist.txt --exclude-length 8753 -t 4 -o Silentium/nmap/gobuster.txt
+
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://silentium.htb
+[+] Method:                  GET
+[+] Threads:                 4
+[+] Wordlist:                wordlist.txt
+[+] Negative Status codes:   404
+[+] Exclude Length:          8753
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/assets               (Status: 301) [Size: 178] [--> http://silentium.htb/assets/]
+Progress: 1828 / 1829 (99.95%)
+===============================================================
+Finished
+===============================================================
+

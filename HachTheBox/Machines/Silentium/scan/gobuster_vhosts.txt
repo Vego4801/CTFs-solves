@@ -1,0 +1,22 @@
+thomas@thomas-ubuntu:~/Desktop$ gobuster vhost --append-domain --url silentium.htb --wordlist subdomains-top1million-20000.txt -t 32 -o Silentium/nmap/gobuster_vhosts.txt
+
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:             http://silentium.htb
+[+] Method:          GET
+[+] Threads:         32
+[+] Wordlist:        subdomains-top1million-20000.txt
+[+] User Agent:      gobuster/3.6
+[+] Timeout:         10s
+[+] Append Domain:   true
+===============================================================
+Starting gobuster in VHOST enumeration mode
+===============================================================
+Found: staging.silentium.htb Status: 200 [Size: 3142]
+Progress: 20000 / 20001 (100.00%)
+===============================================================
+Finished
+===============================================================
+
