@@ -69,7 +69,7 @@ def main():
 
         r.recvuntil(b"Stdout b'")
         flag = r.recvuntil(b"\\")[:-1]
-        print(flag.decode())
+        log.success(f"Flag: {flag.decode()}")
 
 
 if __name__ == '__main__':
